@@ -578,7 +578,7 @@ export function ProjectVisual({ kind, className }: ProjectVisualProps) {
     <div
       aria-hidden
       className={cn(
-        "relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-[#0a0c0f]",
+        "relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-[#0a0c0f] text-white dark:bg-[#0a0c0f]",
         "shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]",
         "before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_at_top_right,rgba(125,207,182,0.1),transparent_55%)]",
         "after:pointer-events-none after:absolute after:inset-0 after:opacity-[0.035] after:bg-[url('data:image/svg+xml,%3Csvg viewBox=\"0 0 256 256\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"n\"%3E%3CfeTurbulence type=\"fractalNoise\" baseFrequency=\"0.85\" numOctaves=\"4\" stitchTiles=\"stitch\"/%3E%3C/filter%3E%3Crect width=\"100%25\" height=\"100%25\" filter=\"url(%23n)\"/%3E%3C/svg%3E')]",

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Manrope, Syne } from "next/font/google";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -34,10 +36,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${manrope.variable} ${syne.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="min-h-full bg-background font-sans text-foreground">
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

@@ -49,7 +49,7 @@ export function SocialLinks({ className, iconClassName }: SocialLinksProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={link.label}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white/[0.02] text-muted-strong transition-colors hover:border-accent/40 hover:bg-accent-soft hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-foreground/[0.02] text-muted-strong transition-colors hover:border-accent/40 hover:bg-accent-soft hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               {Icon ? (
                 <Icon className={cn("h-4 w-4", iconClassName)} />

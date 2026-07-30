@@ -38,7 +38,7 @@ export function CaseStudyView({ study }: CaseStudyViewProps) {
             {study.highlights.map((item) => (
               <li
                 key={item}
-                className="rounded-2xl border border-border bg-white/[0.025] px-4 py-4"
+                className="rounded-2xl border border-border bg-foreground/[0.025] px-4 py-4"
               >
                 <p className="text-sm font-medium leading-snug tracking-tight text-foreground">
                   {item}
@@ -65,7 +65,7 @@ export function CaseStudyView({ study }: CaseStudyViewProps) {
           <ul className="mt-6 flex flex-wrap gap-2">
             {study.tech.map((item) => (
               <li key={item}>
-                <span className="inline-flex rounded-full border border-border bg-white/[0.02] px-3 py-1 text-xs tracking-tight text-muted-strong">
+                <span className="inline-flex rounded-full border border-border bg-foreground/[0.02] px-3 py-1 text-xs tracking-tight text-muted-strong">
                   {item}
                 </span>
               </li>
@@ -122,7 +122,7 @@ export function CaseStudyView({ study }: CaseStudyViewProps) {
               aria-labelledby={`section-${study.slug}-${index}`}
               className={cn(
                 section.variant === "emphasis"
-                  ? "rounded-2xl border border-border bg-white/[0.02] px-5 py-6 sm:px-6"
+                  ? "rounded-2xl border border-border bg-foreground/[0.02] px-5 py-6 sm:px-6"
                   : "border-t border-border pt-8",
               )}
             >
@@ -163,7 +163,7 @@ export function CaseStudyView({ study }: CaseStudyViewProps) {
         <div className="mt-16 border-t border-border pt-8">
           <Link
             href="/#projects"
-            className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-[#93dbc6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             ← Back to selected work
           </Link>

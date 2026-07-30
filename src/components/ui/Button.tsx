@@ -27,11 +27,11 @@ export type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-accent text-[#06110e] shadow-[0_0_0_1px_rgba(125,207,182,0.35),0_12px_40px_-12px_var(--accent-glow)] hover:bg-[#93dbc6] hover:-translate-y-px active:translate-y-0 active:scale-[0.98]",
+    "bg-accent text-[#06110e] shadow-[0_0_0_1px_var(--accent-glow),0_12px_40px_-12px_var(--accent-glow)] hover:bg-accent-hover hover:-translate-y-px active:translate-y-0 active:scale-[0.98]",
   secondary:
-    "border border-border-strong bg-white/[0.03] text-foreground hover:border-accent/40 hover:bg-accent-soft hover:-translate-y-px active:translate-y-0 active:scale-[0.98]",
+    "border border-border-strong bg-foreground/[0.03] text-foreground hover:border-accent/40 hover:bg-accent-soft hover:-translate-y-px active:translate-y-0 active:scale-[0.98]",
   ghost:
-    "border border-transparent text-muted-strong hover:border-border hover:bg-white/[0.03] hover:text-foreground hover:-translate-y-px active:translate-y-0 active:scale-[0.98]",
+    "border border-transparent text-muted-strong hover:border-border hover:bg-foreground/[0.03] hover:text-foreground hover:-translate-y-px active:translate-y-0 active:scale-[0.98]",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
