@@ -50,7 +50,7 @@ export function ProjectCaseStudy({
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2, margin: "0px 0px -6% 0px" }}
-      className="group/project border-t border-border pt-14 sm:pt-16 lg:pt-20"
+      className="group/project border-t border-border py-14 sm:py-16 lg:py-20"
       aria-labelledby={`project-${project.id}-title`}
     >
       <div
