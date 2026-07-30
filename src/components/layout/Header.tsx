@@ -4,15 +4,19 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { NavLink } from "@/components/ui/NavLink";
+import { useActiveSection } from "@/hooks/useActiveSection";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { useScrolled } from "@/hooks/useScrolled";
 import { NAV_ITEMS, SITE } from "@/lib/constants";
 import { cn } from "@/lib/cn";
 
+const SECTION_IDS = NAV_ITEMS.map((item) => item.href.replace(/^\/#/, ""));
+
 export function Header() {
   const scrolled = useScrolled(16);
   const [menuOpen, setMenuOpen] = useState(false);
   const reduceMotion = usePrefersReducedMotion();
+  const activeSection = useActiveSection(SECTION_IDS);
   const menuId = useId();
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
@@ -58,11 +62,19 @@ export function Header() {
         </a>
 
         <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
-          {NAV_ITEMS.map((item) => (
-            <NavLink key={item.href} href={item.href} className="group">
-              {item.label}
-            </NavLink>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const sectionId = item.href.replace(/^\/#/, "");
+            return (
+              <NavLink
+                key={item.href}
+                href={item.href}
+                active={activeSection === sectionId}
+                className="group"
+              >
+                {item.label}
+              </NavLink>
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -123,17 +135,21 @@ export function Header() {
               aria-label="Mobile"
               className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-5 sm:px-8"
             >
-              {NAV_ITEMS.map((item, index) => (
-                <NavLink
-                  key={item.href}
-                  ref={index === 0 ? firstLinkRef : undefined}
-                  href={item.href}
-                  onClick={closeMenu}
-                  className="rounded-lg px-3 py-3 text-base text-muted-strong hover:bg-white/[0.03]"
-                >
-                  {item.label}
-                </NavLink>
-              ))}
+              {NAV_ITEMS.map((item, index) => {
+                const sectionId = item.href.replace(/^\/#/, "");
+                return (
+                  <NavLink
+                    key={item.href}
+                    ref={index === 0 ? firstLinkRef : undefined}
+                    href={item.href}
+                    active={activeSection === sectionId}
+                    onClick={closeMenu}
+                    className="rounded-lg px-3 py-3 text-base text-muted-strong hover:bg-white/[0.03]"
+                  >
+                    {item.label}
+                  </NavLink>
+                );
+              })}
               <div className="mt-3 border-t border-border pt-4">
                 <Button
                   href={SITE.cvHref}

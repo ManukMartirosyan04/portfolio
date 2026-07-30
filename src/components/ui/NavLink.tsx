@@ -18,10 +18,11 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
         ref={ref}
         href={href}
         onClick={onClick}
+        aria-current={active ? "true" : undefined}
         className={cn(
           "relative rounded-md px-1 py-1 text-sm tracking-tight text-muted transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-          active && "text-foreground",
           className,
+          active && "text-foreground",
         )}
         {...props}
       >
@@ -29,7 +30,7 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
         <span
           aria-hidden
           className={cn(
-            "pointer-events-none absolute inset-x-1 -bottom-0.5 h-px origin-left scale-x-0 bg-accent/70 transition-transform duration-300",
+            "pointer-events-none absolute inset-x-1 -bottom-0.5 h-0.5 origin-left scale-x-0 rounded-full bg-accent transition-transform duration-300",
             "group-hover:scale-x-100",
             active && "scale-x-100",
           )}
