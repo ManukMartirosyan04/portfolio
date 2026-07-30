@@ -1,7 +1,20 @@
 import type { NextConfig } from "next";
+import { SITE } from "./src/lib/constants";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async headers() {
+    return [
+      {
+        source: "/cv.pdf",
+        headers: [
+          {
+            key: "Content-Disposition",
+            value: `attachment; filename="${SITE.cvDownloadName}"`,
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
