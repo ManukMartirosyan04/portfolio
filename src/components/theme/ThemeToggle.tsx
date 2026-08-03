@@ -7,7 +7,7 @@ import { cn } from "@/lib/cn";
 const LABELS = {
   light: "Light",
   dark: "Dark",
-  system: "System",
+  // system: "System",
 } as const;
 
 function SunIcon({ className }: { className?: string }) {
@@ -45,23 +45,23 @@ function MoonIcon({ className }: { className?: string }) {
   );
 }
 
-function SystemIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.75"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <rect x="3" y="4" width="18" height="12" rx="2" />
-      <path d="M8 20h8M12 16v4" />
-    </svg>
-  );
-}
+// function SystemIcon({ className }: { className?: string }) {
+//   return (
+//     <svg
+//       className={className}
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="1.75"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//       aria-hidden
+//     >
+//       <rect x="3" y="4" width="18" height="12" rx="2" />
+//       <path d="M8 20h8M12 16v4" />
+//     </svg>
+//   );
+// }
 
 export function ThemeToggle({ className }: { className?: string }) {
   const { theme, cycleTheme } = useTheme();
@@ -71,8 +71,7 @@ export function ThemeToggle({ className }: { className?: string }) {
     setMounted(true);
   }, []);
 
-  const nextLabel =
-    theme === "light" ? "Dark" : theme === "dark" ? "System" : "Light";
+  const nextLabel = theme === "light" ? "Dark" : "Light";
 
   return (
     <button
@@ -89,12 +88,10 @@ export function ThemeToggle({ className }: { className?: string }) {
       }
       title={mounted ? `Theme: ${LABELS[theme]}` : "Theme"}
     >
-      {!mounted || theme === "system" ? (
-        <SystemIcon className="h-4 w-4" />
-      ) : theme === "light" ? (
-        <SunIcon className="h-4 w-4" />
-      ) : (
+      {!mounted || theme === "dark" ? (
         <MoonIcon className="h-4 w-4" />
+      ) : (
+        <SunIcon className="h-4 w-4" />
       )}
     </button>
   );
